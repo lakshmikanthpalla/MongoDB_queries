@@ -1,0 +1,27 @@
+1.How do you insert a single document into a MongoDB collection?
+
+db.collection.insertone({})
+
+2.How do you insert multiple documents at once?
+
+db.collection.insertmany({})
+
+3.How do you find all documents in a collection?
+
+db.collection.find()
+
+4.How do you find documents where a field equals a specific value?
+
+db.collection.find({field:{$eq:value}})
+
+5.How do you find documens where a numeric field is greater than a value?
+
+db.collection.find({field:{$gt:value}})
+
+6.How do you find documens where a numeric field is greater than a value?
+
+db.collection.find({field:{$lt:value}})
+
+7.How do you find documents with multiple conditions(AND)?
+
+db.collection.find({$and:[{field:value},{field:value}]})

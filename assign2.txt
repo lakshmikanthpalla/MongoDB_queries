@@ -1,0 +1,105 @@
+1.Insert a single document into a collection named students with fields: name, age, and course.
+
+db.students.insertOne({ name: "Alice", age: 21, course: "Math" });
+
+2.Insert multiple documents into the employees collection with fields: name, salary, and department.
+
+db.employees.insertMany([
+  { name: "John", salary: 32000, department: "HR" },
+  { name: "Emma", salary: 40000, department: "Finance" }
+]);
+
+3.Find all documents from the products collection.
+
+db.products.find();
+
+4.Find all documents in the users collection where age is greater than 25.
+
+db.users.find({ age: { $gt: 25 } });
+
+5.Find documents from the orders collection where status is either "pending" or "shipped".
+
+db.orders.find({ status: { $in: ["pending", "shipped"] } });
+
+6.Update the email field of a user where username is "john_doe" in the users collection.
+
+db.users.updateOne(
+  { username: "john_doe" },
+  { $set: { email: "newemail@example.com" } }
+);
+
+7.Delete a document from the students collection where roll is 101.
+
+db.students.deleteOne({ roll: 101 });
+
+8.Find all employees with salary greater than or equal to 30000 using a comparison operator.
+
+db.employees.find({ salary: { $gte: 30000 } });
+
+9.Retrieve all books where author is "Chetan Bhagat" and publishedYear is after 2010.
+
+db.books.find({
+  author: "Chetan Bhagat",
+  publishedYear: { $gt: 2010 }
+});
+
+10.Count the number of documents in the customers collection where city is "Delhi".
+
+db.customers.countDocuments({ city: "Delhi" });
+
+11.Find the first 5 users from the users collection using limit().
+
+db.users.find().limit(5);
+
+12.Skip the first 10 documents and retrieve the next 5 from the logs collection.
+
+db.logs.find().skip(10).limit(5);
+
+13.Sort all products in ascending order of price.
+
+db.products.find().sort({ price: 1 });
+
+14.Sort users in descending order of createdAt date.
+
+db.users.find().sort({ createdAt: -1 });
+
+15.Retrieve only the name and email fields of users (hide _id).
+
+db.users.find({}, { name: 1, email: 1, _id: 0 });
+
+16.Find all students whose marks are between 60 and 90.
+
+db.students.find({ marks: { $gte: 60, $lte: 90 } });
+
+17.Retrieve all documents from the sales collection where the amount is less than 500 or greater than 5000.
+
+db.sales.find({
+  $or: [
+    { amount: { $lt: 500 } },
+    { amount: { $gt: 5000 } }
+  ]
+});
+
+18.Update the status to "completed" for all orders where deliveryDate is not null.
+
+db.orders.updateMany(
+  { deliveryDate: { $ne: null } },
+  { $set: { status: "completed" } }
+);
+
+19.Delete all inactive users from the users collection where active is false.
+
+db.users.deleteMany({ active: false });
+
+20.Find users who are either from "Bangalore" or have age greater than 30 using a logical $or operator.
+
+db.users.find({
+  $or: [
+    { city: "Bangalore" },
+    { age: { $gt: 30 } }
+  ]
+});
+
+
+
+
